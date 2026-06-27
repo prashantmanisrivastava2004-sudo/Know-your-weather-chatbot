@@ -90,7 +90,11 @@ def describe_weather_code(code):
     return weather_map.get(code, "unknown weather")
 
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["GET","POST"])
+
+def webhook():
+    if request.method == "GET":
+        return "webhook is live"
 def index():
     data = request.get_json(silent=True) or {}
     city = get_city_from_dialogflow(data)

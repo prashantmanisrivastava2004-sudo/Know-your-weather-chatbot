@@ -90,7 +90,7 @@ def describe_weather_code(code):
     return weather_map.get(code, "unknown weather")
 
 
-@app.route("/", methods=["GET","POST"])
+@app.route("/webhook", methods=["GET","POST"])
 
 def webhook():
     if request.method == "GET":
